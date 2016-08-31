@@ -1,5 +1,4 @@
 version: '2'
-
 services:
 
   elasticsearch:
@@ -15,10 +14,11 @@ services:
     volumes:
       - ./logstash/config:/etc/logstash/conf.d
     ports:
-      - "5000:5000"
+      - "9998:9998" #tcp
+      - "9999:9999" #udp
     links:
       - elasticsearch
-      
+
   kibana:
     build: kibana/
     volumes:
